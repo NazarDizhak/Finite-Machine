@@ -1,0 +1,33 @@
+digraph G {
+    graph [rankdir=LR labelfontcolor=red fontname="monospace" nodesep=1.0 size="7.75,10.25"]
+    node [fontname="monospace" fontsize=11]
+    edge [fontname="monospace" color="grey" fontsize=11]
+    
+    q0 [label="start" shape="circle"]
+    q1 [label="sleep" shape="circle"]
+    q2 [label="eat
+50% no food" shape="circle"]
+    q3 [label="work" shape="circle"]
+    q4 [label="relax" shape="circle"]
+    q5 [label="death" shape="doublecircle"]
+
+
+
+    q0 -> q1 [label="_"]
+    q1 -> q1 [label="Hours 22-7, 
+(23-8 if overslept, 15%)"]
+    q1 -> q2 [label="Hour 8"]
+    q1 -> q3 [label="Hour 9"]
+    q2 -> q3 [label="Hours 9-18"]
+    q2 -> q4 [label="Hour 18+"]
+    q3 -> q4 [label="Hour 18"]
+    q3 -> q2 [label = "hunger < 3"]
+    q4 -> q2 [label = "hunger < 3"]
+    q4 -> q1 [label = "Hour 22"]
+    
+    q1 -> q5 [label = "hunger/mental state/fatigue = 0"]
+    q2 -> q5 [label = "hunger/mental state/fatigue = 0"]
+    q3 -> q5 [label = "hunger/mental state/fatigue = 0"]
+    q4 -> q5 [label = "hunger/mental state/fatigue = 0"]
+
+}
